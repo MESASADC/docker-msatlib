@@ -5,7 +5,7 @@ if [ "$(id -u)" != "0" ] && ! (groups | grep docker >/dev/null 2>&1) ; then
   exit 1
 fi
 main_dir=$(dirname $(readlink -f $0))
-env_file="${env_file:-${main_dir}/build_run_env_nogit.sh}"
+env_file="${env_file:-${main_dir}/build_run_env.sh}"
 source $env_file
 
 refresh_at=$(date +%Y%m)

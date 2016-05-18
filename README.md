@@ -35,8 +35,6 @@ Note: in some cases it is neccersary to specify the GDAL_DRIVER_PATH explicitly:
 ## main
 Scripts and files used to build and run the Docker image
 
-First and foremost, create *build_run_env_nogit.sh* which defines some mandatory environment variables. This file is *sourced* by the *build* and *run* script. It may contain login credentials therefore it is excluded from the Git repo.
-
 The user (e.g. eouser) who builds and runs the docker image must have 'docker' as one of his supplementary group, i.e.
 ```
   sudo usermod -a -G docker eouser
@@ -51,7 +49,9 @@ The user (e.g. eouser) who builds and runs the docker image must have 'docker' a
 - HOME_DIR=*directory outside container to be mounted as /home/$APPUSER*
 
 To build the Docker image:
-```main/build```
+```
+  main/build
+```
 
 Examples, assuming raw XRIT files are in */data/tellicast/eumetcast/*:
 
