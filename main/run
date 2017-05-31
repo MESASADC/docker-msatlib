@@ -25,7 +25,7 @@ cat <<EOT >$main_dir/start.sh
 # Uncomment to debug
 set -eux
 
-export GDAL_DRIVER_PATH=/usr/local/lib/gdalplugins/1.11
+export GDAL_DRIVER_PATH=/usr/local/lib/gdalplugins/2.1
 export PATH=\$PATH:/home/$APPUSER/meteosatlib-1.3/examples
 
 PRODUCTS="\${PRODUCTS:-EnhancedIr}"
@@ -43,10 +43,11 @@ cd /tmp/out
 
 msat --Area=10,-50,60,10 --conv GTiff /tmp/in/$MSAT_INPUT_FILE
 
+
 EOT
 chmod 755 $main_dir/start.sh
 
-docker run -i -t --rm \
+docker run --rm \
 -e TIMESTR="${TIMESTR:-}" \
 -e $MSAT_INPUT_FILE=$MSAT_INPUT_FILE \
 -v $HOME_DIR:/home/$APPUSER \

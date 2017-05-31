@@ -1,6 +1,6 @@
 #! /bin/bash
 
-set -u
+set -ux
 IN_DIR="${IN_DIR:-/tmp/in}"
 OUT_DIR="${OUT_DIR:-/tmp/out}"
 
@@ -40,7 +40,8 @@ fi
 # Image collection interval in minutes
 #COLLECT_MIN="${MSATLIB_GIF_COLLECT_MIN:-360}"
 
-export GDAL_DRIVER_PATH=/usr/local/lib/gdalplugins/1.11
+export GDAL_DRIVER_PATH=/usr/local/lib/gdalplugins/2.1
+
 export PATH=$PATH:$MSATLIB_DIR
 
 #
